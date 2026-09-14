@@ -22,12 +22,10 @@ nano scripts/generate_data.py - kirjutasin nano editoris koodi faili sisse. Siis
 
 5:
 touch scripts/generate_data.sh - lõin sh koodi faili 
-(kood: 
-#x=1
-#while [ "$x" -le 10 ]; do         
-#	python3 generate_data.py > ../data/data${x}.txt;         
-#	x=$((x+1));
-#done
+
+(koodis kasutatud asjad : 
+-le - less or equal
+while sth; do - tsükli loomine)
 
 6:
 cat data/*.txt | sort -n | uniq -c > results/summary_total_unique_numbers_counted.txt - tegin kõigist saadud andmefailist
