@@ -607,7 +607,7 @@ ORDER BY average_price DESC;
 **Ülesanne 7:** Leia kõik tellimused, kus tellitud toodete koguarv (quantity) on suurem kui 8. Kuvage iga tellimuse ID, kliendi täisnimi (eesnimi ja perekonnanimi koos) ning erinevate toodete arv selles tellimuses. Sorteerige tulemused tellimuse ID järgi kasvavas järjekorras.
 
 ```sql
-SELECT CONCAT(c.first_name, ' ', c.last_name) AS customer_name, o.order_id, COUNT(oi.product_id) AS dif_count FROM sales.orders o JOIN sales.order_items oi ON o.order_id=oi.order_id LEFT JOIN sales.customers c ON c.customer_id=o.customer_id GROUP BY c.customer_id,c.first_name,c.last_name,o.order_id HAVING COUNT(oi.item_id) > 8 ORDER BY o.order_id ASC;
+SELECT CONCAT(c.first_name, ' ', c.last_name) AS customer_name, o.order_id, COUNT(oi.product_id) AS dif_count FROM sales.orders o JOIN sales.order_items oi ON o.order_id=oi.order_id JOIN sales.customers c ON c.customer_id=o.customer_id GROUP BY c.customer_id,c.first_name,c.last_name,o.order_id HAVING COUNT(oi.item_id) > 8 ORDER BY o.order_id ASC;
 
 ```
 
